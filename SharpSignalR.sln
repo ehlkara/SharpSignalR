@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1705.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpSignalR.API", "SharpSignalR.API\SharpSignalR.API.csproj", "{5B36BEEE-F9C3-48C4-B918-1350EEC2EF72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpSignalR.Web", "SharpSignalR.Web\SharpSignalR.Web.csproj", "{27A76EEE-6A9B-46E8-9961-D2EDA03A329F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5B36BEEE-F9C3-48C4-B918-1350EEC2EF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B36BEEE-F9C3-48C4-B918-1350EEC2EF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B36BEEE-F9C3-48C4-B918-1350EEC2EF72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27A76EEE-6A9B-46E8-9961-D2EDA03A329F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27A76EEE-6A9B-46E8-9961-D2EDA03A329F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27A76EEE-6A9B-46E8-9961-D2EDA03A329F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27A76EEE-6A9B-46E8-9961-D2EDA03A329F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
