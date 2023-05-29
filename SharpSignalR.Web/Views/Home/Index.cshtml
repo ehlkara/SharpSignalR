@@ -20,17 +20,20 @@
         })
 
         connection.on("ReceiveName", (name) => {
-            console.log(name);
+            $("#namesList").append(`<li class="list-group-item">${name}</li>`)
         })
     })
 </script>
+}
 
 <div class="row">
+    <input class="form-control" type="text" id="txtName" />
+    <hr />
+    <button class="btn btn-primary" id="btnNameSave">Save Name</button>
+    <div class="alert alert-info">
+        Connection State:<strong id="conStatus"></strong>
+    </div>
     <div class="col-md-8 offset-2">
-        <input class="form-control" type="text" id="txtName" />
-        <hr />
-        <button class="btn btn-primary" id="btnNameSave">Save Name</button>
-        <div class="alert alert-info">Connection state: <strong id="conStatus"></strong></div>
+        <ul class="list-group" id="namesList"></ul>
     </div>
 </div>
-}
