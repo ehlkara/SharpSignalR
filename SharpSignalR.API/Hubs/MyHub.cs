@@ -9,11 +9,20 @@ namespace SharpSignalR.API.Hubs
 
 		private static int ClientCount { get; set; } = 0;
 
+		public static int TeamCount { get; set; } = 7;
+
 		public async Task SendName(string name)
 		{
-			Names.Add(name);
+			if(Names.Count >= TeamCount)
+			{
+				await Clients.Caller.SendAsync("Error", $"The team can have a maximum of {TeamCount} people.");
+			}
+			else
+			{
+                Names.Add(name);
 
-			await Clients.All.SendAsync("ReceiveName", name);
+                await Clients.All.SendAsync("ReceiveName", name);
+            }
 		}
 
 		public async Task GetName()

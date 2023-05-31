@@ -57,6 +57,10 @@
             $("#notify").html(`<div class="alert alert-success">${countText} </div>`)
         });
 
+        connection.on("Error", (errorText) => {
+            alert(errorText);
+        });
+
         //Clicks
         $("#btnNameSave").click(() => {
             connection.invoke("SendName", $("#txtName").val()).catch((err) => { console.log(err) });
