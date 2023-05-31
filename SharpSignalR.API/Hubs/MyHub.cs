@@ -25,7 +25,7 @@ namespace SharpSignalR.API.Hubs
             }
 		}
 
-		public async Task GetName()
+		public async Task GetNames()
 		{
 			await Clients.All.SendAsync("ReceiveNames", Names);
 		}
