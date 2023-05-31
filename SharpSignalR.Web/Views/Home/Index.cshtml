@@ -65,9 +65,8 @@
 
         connection.on("ReceiveNames", (names) => {
             $("#namesList").empty();
-
-            names.foreach((item, index) => {
-                $("#namesList").append(`<li class="list-group-item">${item}</li>`)
+            names.forEach((item, index) => {
+                $("#namesList").append(`<li class="list-group-item">${item} </li>`)
             });
         });
 
