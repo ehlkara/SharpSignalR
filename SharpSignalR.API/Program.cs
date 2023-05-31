@@ -1,8 +1,19 @@
-﻿using SharpSignalR.API.Hubs;
+﻿using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using SharpSignalR.API.Hubs;
+using SharpSignalR.API.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<AppDbContext>(x =>
+{
+    x.UseSqlServer(builder.Configuration.GetConnectionString("ConStr"), options =>
+    {
+        options.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
+    }).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+});
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
