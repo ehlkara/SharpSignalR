@@ -1,6 +1,9 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using SharpSignalR.Web.Hubs;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSignalR();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -23,6 +26,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapHub<MyHub>("/MyHub");
 
 app.Run();
 
