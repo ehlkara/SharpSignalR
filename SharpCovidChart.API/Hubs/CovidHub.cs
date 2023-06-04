@@ -1,13 +1,21 @@
 ﻿using System;
 using Microsoft.AspNetCore.SignalR;
+using SharpCovidChart.API.Models;
 
 namespace SharpCovidChart.API.Hubs
 {
 	public class CovidHub : Hub
 	{
-		public async Task GetCovidList()
+		private readonly CovidService _covidService;
+
+        public CovidHub(CovidService covidService)
+        {
+            _covidService = covidService;
+        }
+
+        public async Task GetCovidList()
 		{
-			await Clients.All.SendAsync("ReceiveCovidList", "get to covid variables in service");
+			await Clients.All.SendAsync("ReceiveCovidList", _covidService.GetCovidChartList());
 		}
 	}
 }

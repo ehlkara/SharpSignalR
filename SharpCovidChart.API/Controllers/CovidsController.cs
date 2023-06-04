@@ -24,9 +24,9 @@ namespace SharpCovidChart.API.Controllers
         {
             await _covidService.SaveCovid(covid);
 
-            IQueryable<Covid> covidList = _covidService.GetList();
+            //IQueryable<Covid> covidList = _covidService.GetList();
 
-            return Ok(covidList);
+            return Ok(_covidService.GetCovidChartList());
         }
 
         [HttpGet]
