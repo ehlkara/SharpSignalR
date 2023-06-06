@@ -7,7 +7,7 @@ import { Covid } from '../Models/covid.model';
 })
 export class CovidService {
 
-  covidChartList = new Array();
+  public covidChartList = new Array();
 
   private hubConnection!:signalR.HubConnection;
 
@@ -19,7 +19,6 @@ private startInvoke() {
 
   startConnection() {
     this.hubConnection = new signalR.HubConnectionBuilder().withUrl("http://localhost:5178/CovidHub").build();
-
     this.hubConnection.start().then(() => {
       this.startInvoke();
     }).catch((err) => {
@@ -31,7 +30,7 @@ private startInvoke() {
     this.hubConnection.on("ReceiveCovidList", (covidCharts:Covid[]) => {
       this.covidChartList = [];
       covidCharts.forEach((item) => {
-        this.covidChartList.push(item.covidDate,item.counts[0],item.counts[1],item.counts[2],item.counts[3],item.counts[4]);
+        this.covidChartList.push([item.covidDate, item.counts[0], item.counts[1], item.counts[2], item.counts[3], item.counts[4]]);
       });
     });
   }
